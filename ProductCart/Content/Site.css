@@ -1,0 +1,52 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+.product-title {
+    display: block;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+.rating {
+    margin-top: 4px;
+}
+
+.product-card{
+    margin-bottom: 25px;
+}
+
+.emphasize{
+    border-bottom: 1px solid #ddd;
+}
+
+.search-input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+    
+.navbar{
+    margin-bottom: 0px;
+}
+
+.product-list-container{
+    min-height: 836px;
+}
+/*.product-col {
+    padding: 15px 15px 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+}
+
+    .product-col.list .image {
+        padding: 20px 30px 10px 0;
+        float: left;
+    }*/

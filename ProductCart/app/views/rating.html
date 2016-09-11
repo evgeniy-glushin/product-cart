@@ -1,0 +1,5 @@
+﻿<span ng-repeat="i in [] | range:vm.max track by $index">
+    <span ng-class="$index < vm.value ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'"
+          ng-click="vm.setRating({ value: $index + 1 })">
+    </span>
+</span>

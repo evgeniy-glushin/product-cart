@@ -1,0 +1,66 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-cloak>
+    <div class="navbar">
+        <div class="container emphasize">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("ProductCart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("api", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+        <!--angular app entry point-->
+        <product-cart-app></product-cart-app>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/underscore.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    @*<script src="~/Scripts/angular-ui-router.js"></script>*@
+    @*<script src="~/Scripts/angular-route.js"></script>*@
+    <script src="~/Scripts/angular_1_router.js"></script>
+
+    <script src="~/app/module.js"></script>
+    <script src="~/app/product-cart-app.js"></script>
+
+    <script src="~/app/filters/range-filter.js"></script>
+
+    <script src="~/app/components/products-list.js"></script>
+    <script src="~/app/components/rating.js"></script>
+
+    <script src="~/app/repositories/productRepository.js"></script>
+    <script src="~/app/repositories/categoryRepository .js"></script>
+</body>
+</html>
+
+
+

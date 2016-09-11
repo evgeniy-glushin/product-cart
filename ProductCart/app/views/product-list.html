@@ -1,0 +1,52 @@
+﻿<div>
+   <div class="row">
+
+        <div class="row">
+            <div class="col-md-2 pull-right search-input">
+                <div class="input-group">
+                    <a ng-link="['ProductsList', {filter: '?searchTxt=' + vm.searchTxt}]" 
+                       class="input-group-addon btn btn-default"
+                       ng-disabled="!vm.searchTxt">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                    <input type="text" class="form-control" placeholder="search text" ng-model="vm.searchTxt">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row product-list-container">
+            <div class="col-md-2">
+                <div class="list-group">
+                    <a ng-link="['ProductsList', {filter: '?categoryId=' + category.id}]"
+                       ng-class="category.selected ? 'list-group-item active' : 'list-group-item'"
+                       ng-repeat="category in vm.categories">
+                        {{category.name}}
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 product-card" ng-repeat="product in vm.products" style="height: 457px;">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <img ng-src="/Content/images/{{product.image}}" alt="{{product.name}}" class="img-responsive" />
+                            </div>
+
+                            <div class="panel-footer">
+                                <span ng-bind="product.name" class="product-title"></span>
+                                $<span ng-bind="product.price"></span>
+                                <div class="rating">
+                                    <rating value="product.rating" max="5" set-rating="vm.setRating(product, value)"></rating>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
