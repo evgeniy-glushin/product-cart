@@ -7,28 +7,19 @@
 
     function productRepository($http, $q) {
 
-        function getAll() {
+        function get(pagams) {
             var deffer = $q.defer();
 
-            $http.get('api/products')
+            $http({
+                url: 'api/products',
+                method: "GET",
+                params: pagams
+            })
               .then(function (response) {
                   deffer.resolve(response.data);
               }, function (error) {
                   deffer.reject(error);
-              })
-
-            return deffer.promise;
-        }
-
-        function get(categoryId) {
-            var deffer = $q.defer();
-
-            $http.get('api/products/' + categoryId)
-              .then(function (response) {
-                  deffer.resolve(response.data);
-              }, function (error) {
-                  deffer.reject(error);
-              })
+              });
 
             return deffer.promise;
         }
@@ -48,7 +39,6 @@
 
 
         return {
-            getAll: getAll,
             get: get,
             setRating: setRating
         };

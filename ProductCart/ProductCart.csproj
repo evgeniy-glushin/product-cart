@@ -184,6 +184,10 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Extensions\ProductListExt.cs" />
+    <Compile Include="Filters\ValidationFilter.cs" />
+    <Compile Include="ViewModels\PagedResult.cs" />
+    <Compile Include="ViewModels\GetProductsVm.cs" />
     <Compile Include="ViewModels\UpdateRatingVm.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Entities\Category.cs" />

@@ -46,6 +46,12 @@
                         </div>
                     </div>
                 </div>
+
+                <ul class="pagination">
+                    <li ng-class="vm.page == $index + 1 ? 'active' : ''" ng-repeat="i in [] | range:vm.total track by $index">
+                        <a ng-click="vm.goToPage($index + 1)">{{$index + 1}}</a>
+                    </li>                                    
+                </ul>
             </div>
         </div>
     </div>

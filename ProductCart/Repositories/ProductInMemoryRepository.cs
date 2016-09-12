@@ -22,6 +22,10 @@ namespace ProductCart.Repositories
                 new Product { Id = 8, Name = "Apple MacBook Pro 13-inch", Rating = 5, Price = 1800.0, Image = "0000024_apple-macbook-pro-13-inch_415.jpeg", CategoryId = 3 },
                 new Product { Id = 9, Name = "Asus N551JK-XO076H Laptop", Rating = 5, Price = 1500.0, Image = "0000026_asus-n551jk-xo076h-laptop_415.jpeg", CategoryId = 3 },
                 new Product { Id = 10, Name = "HP Spectre XT Pro UltraBook", Rating = 4, Price = 1350.0, Image = "0000028_hp-spectre-xt-pro-ultrabook_415.jpeg", CategoryId = 3 },
+                new Product { Id = 11, Name = "Apple MacBook Pro 13-inch", Rating = 5, Price = 1800.0, Image = "0000024_apple-macbook-pro-13-inch_415.jpeg", CategoryId = 3 },
+                new Product { Id = 12, Name = "Asus N551JK-XO076H Laptop", Rating = 5, Price = 1500.0, Image = "0000026_asus-n551jk-xo076h-laptop_415.jpeg", CategoryId = 3 },
+                new Product { Id = 13, Name = "HP Spectre XT Pro UltraBook", Rating = 4, Price = 1350.0, Image = "0000028_hp-spectre-xt-pro-ultrabook_415.jpeg", CategoryId = 3 },
+                new Product { Id = 14, Name = "HP Spectre XT Pro UltraBook", Rating = 4, Price = 1350.0, Image = "0000028_hp-spectre-xt-pro-ultrabook_415.jpeg", CategoryId = 3 },
             };
 
         public Product Find(int id)

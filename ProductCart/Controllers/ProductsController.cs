@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Web.Http;
 using ProductCart.Entities;
+using ProductCart.Extensions;
 using ProductCart.Repositories;
+using ProductCart.ViewModels;
 
 namespace ProductCart.Controllers
 {
@@ -17,10 +19,17 @@ namespace ProductCart.Controllers
         }
 
         [HttpGet, Route("")]
-        public IEnumerable<Product> Get()
-
+        public PagedResult<Product> Get([FromUri]GetProductsVm input)
         {
-            return _productRepository.GetAll();
+            var productsList = _productRepository.GetAll();
+
+            if (input.CategoryId > 0)
+                productsList = productsList.Where(p => p.CategoryId == input.CategoryId);
+
+            if (!string.IsNullOrWhiteSpace(input.SearchTxt))
+                productsList = productsList.Where(p => p.Name.Contains(input.SearchTxt));
+
+            return productsList.ToPagedResult(input.Page, input.PageSize, p => p.Id);
         }
         
         [HttpGet, Route("{name}")]
@@ -39,7 +48,7 @@ namespace ProductCart.Controllers
 
         [HttpPost, Route("")]
         public IHttpActionResult Post([FromBody] UpdateRatingVm input)
-        {
+        {            
             Product product = _productRepository.Find(input.Id);
             if (product == null)
                 return NotFound();
