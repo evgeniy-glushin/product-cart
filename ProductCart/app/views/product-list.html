@@ -1,10 +1,10 @@
 ﻿<div>
-   <div class="row">
+    <div class="row">
 
         <div class="row">
             <div class="col-md-2 pull-right search-input">
                 <div class="input-group">
-                    <a ng-link="['ProductsList', {filter: '?searchTxt=' + vm.searchTxt}]" 
+                    <a ng-link="['ProductsList', {filter: '?searchTxt=' + vm.searchTxt}]"
                        class="input-group-addon btn btn-default"
                        ng-disabled="!vm.searchTxt">
                         <span class="glyphicon glyphicon-search"></span>
@@ -12,9 +12,12 @@
                     <input type="text" class="form-control" placeholder="search text" ng-model="vm.searchTxt">
                 </div>
             </div>
+        </div>
+        <div class="row">
+
+            <ng-include src="vm.msgBoxTemplate"></ng-include>
 
         </div>
-
         <div class="row product-list-container">
             <div class="col-md-2">
                 <div class="list-group">
@@ -47,12 +50,16 @@
                     </div>
                 </div>
 
-                <ul class="pagination">
-                    <li ng-class="vm.page == $index + 1 ? 'active' : ''" ng-repeat="i in [] | range:vm.total track by $index">
-                        <a ng-click="vm.goToPage($index + 1)">{{$index + 1}}</a>
-                    </li>                                    
-                </ul>
+                <pagination page="vm.page" total="vm.total" go-to-page="vm.goToPage(newPage)"></pagination>
+              
             </div>
         </div>
     </div>
 </div>
+
+<!--<script type="text/ng-template" id="successMsg">
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Indicates a successful or positive action.
+    </div>
+</script>-->

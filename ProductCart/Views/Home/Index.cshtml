@@ -22,12 +22,12 @@
                 </button>
                 @Html.ActionLink("ProductCart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            @*<div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("api", "Index", "Help", new { area = "" }, null)</li>
                 </ul>
-            </div>
+            </div>*@
         </div>
     </div>
     <div class="container body-content">
@@ -55,6 +55,7 @@
 
     <script src="~/app/components/products-list.js"></script>
     <script src="~/app/components/rating.js"></script>
+    <script src="~/app/components/pagination.js"></script>
 
     <script src="~/app/repositories/productRepository.js"></script>
     <script src="~/app/repositories/categoryRepository .js"></script>

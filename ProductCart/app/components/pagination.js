@@ -3,17 +3,16 @@
 
     var module = angular.module('app');
 
-    module.component('rating', {
-        templateUrl: '/app/views/rating.html',
+    module.component('pagination', {
+        templateUrl: '/app/views/pagination.html',
         bindings: {
-            value: '<',
-            max: '<',
-            setRating: '&'
+            page: '<',
+            total: '<',
+            goToPage: '&'
         },
-        //transclude: true,
         controllerAs: 'vm',
         controller: function () {
-          
+
         }
     });
 

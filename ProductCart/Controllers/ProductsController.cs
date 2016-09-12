@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using ProductCart.Entities;
 using ProductCart.Extensions;
@@ -22,7 +21,6 @@ namespace ProductCart.Controllers
         public PagedResult<Product> Get([FromUri]GetProductsVm input)
         {
             var productsList = _productRepository.GetAll();
-
             if (input.CategoryId > 0)
                 productsList = productsList.Where(p => p.CategoryId == input.CategoryId);
 
@@ -32,22 +30,8 @@ namespace ProductCart.Controllers
             return productsList.ToPagedResult(input.Page, input.PageSize, p => p.Id);
         }
         
-        [HttpGet, Route("{name}")]
-        public IEnumerable<Product> Get(string name)
-        {
-            return _productRepository.GetAll()
-                .Where(p => p.Name.Contains(name));
-        }
-
-        [HttpGet, Route("{categoryId:int}")]
-        public IEnumerable<Product> Get(int categoryId)
-        {
-            return _productRepository.GetAll()
-                .Where(p => p.CategoryId == categoryId);
-        }
-
-        [HttpPost, Route("")]
-        public IHttpActionResult Post([FromBody] UpdateRatingVm input)
+        [HttpPut, Route("")]
+        public IHttpActionResult Put([FromBody] UpdateRatingVm input)
         {            
             Product product = _productRepository.Find(input.Id);
             if (product == null)

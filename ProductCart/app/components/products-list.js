@@ -19,21 +19,24 @@
 
         vm.products = [];
         vm.categories = [];
-        var pageSize = 6;
 
+        //TODO: let user to choose pageSize.
+        var pageSize = 6;
+            
         vm.goToPage = function (newPage) {
             if (newPage == vm.page) return;
 
-            var filter = '?page=' + newPage + '&pageSize=' + pageSize;
+            var queryStr = '?page=' + newPage + '&pageSize=' + pageSize;
 
+            //add categoryId to queryStr if category was selected by user
             var selectedCategory = _.find(vm.categories, function (c) { return c.selected; });
             if (selectedCategory)
-                filter += '&categoryId=' + selectedCategory.id;
+                queryStr += '&categoryId=' + selectedCategory.id;
 
             if (vm.searchTxt)
-                filter += '&searchTxt=' + vm.searchTxt;
+                queryStr += '&searchTxt=' + vm.searchTxt;
 
-            vm.$router.navigate(['ProductsList', { filter: filter }]);
+            vm.$router.navigate(['ProductsList', { filter: queryStr }]);
         }
 
         vm.$routerOnActivate = function (next, prev) {
@@ -46,7 +49,7 @@
                    if (routeParams.categoryId)
                        setSelectedCategory(routeParams.categoryId)
                }, function (error) {
-
+                   alert(error.statusText);
                });
 
             var prodsParams = {
@@ -61,33 +64,26 @@
                     angular.extend(vm.products, data.rows);
                     vm.page = data.page;
                     vm.total = data.total;
-                }, function (error) {
 
+                    if (routeParams.searchTxt)
+                        setSearchTxt(routeParams.searchTxt);
+                }, function (error) {
+                    alert(error.statusText);
                 });
         };
-
+                
         function parseQueryStringParams(filter) {
             var queryStringParams = {};
 
-            var searchTxtRegex = /searchTxt=(\w+)/;
-            var searchTxtRegexMatch = filter.match(searchTxtRegex);
-            if (searchTxtRegexMatch)
-                queryStringParams.searchTxt = searchTxtRegexMatch[1];
+            queryStringParams.searchTxt = parseFilter(/searchTxt=(\w+)/);
+            queryStringParams.categoryId = parseFilter(/categoryId=(\d+)/);
+            queryStringParams.page = parseFilter(/page=(\d+)/);
+            queryStringParams.pageSize = parseFilter(/pageSize=(\d+)/);
 
-            var categoryIdRegex = /categoryId=(\d+)/;
-            var categoryIdRegexMatch = filter.match(categoryIdRegex);
-            if (categoryIdRegexMatch)
-                queryStringParams.categoryId = categoryIdRegexMatch[1];
-
-            var pageRegex = /page=(\d+)/;
-            var pageRegexMatch = filter.match(pageRegex);
-            if (pageRegexMatch)
-                queryStringParams.page = pageRegexMatch[1];
-
-            var pageSizeRegex = /pageSize=(\d+)/;
-            var pageSizeRegexMatch = filter.match(pageSizeRegex);
-            if (pageSizeRegexMatch)
-                queryStringParams.pageSize = pageSizeRegexMatch[1];
+            function parseFilter(regex) {
+                var matches = filter.match(regex);
+                return matches ? matches[1] : null;
+            }
 
             return queryStringParams;
         }
@@ -107,9 +103,9 @@
 
             productRepository.setRating(product)
                   .then(function (data) {
-
+                      alert('Rating was updated successfuly.');
                   }, function (error) {
-
+                      alert(error.statusText);
                   });
         };
     }

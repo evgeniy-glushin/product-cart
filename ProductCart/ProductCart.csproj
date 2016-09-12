@@ -202,11 +202,13 @@
     <Compile Include="Repositories\ProductInMemoryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\components\pagination.js" />
     <Content Include="app\components\rating.js" />
     <Content Include="app\components\products-list.js" />
     <Content Include="app\filters\range-filter.js" />
     <Content Include="app\repositories\categoryRepository .js" />
     <Content Include="app\repositories\productRepository.js" />
+    <Content Include="app\views\pagination.html" />
     <Content Include="app\views\rating.html" />
     <Content Include="app\views\product-list.html" />
     <Content Include="app\views\product-cart-app.html" />
@@ -219,7 +221,11 @@
     <Content Include="Content\images\0000026_asus-n551jk-xo076h-laptop_415.jpeg" />
     <Content Include="Content\images\0000028_hp-spectre-xt-pro-ultrabook_415.jpeg" />
     <Content Include="Content\images\0000035_nikon-d5500-dslr_415.jpeg" />
+    <Content Include="Content\images\0000039_leica-t-mirrorless-digital-camera_415.jpeg" />
     <Content Include="Content\images\0000040_apple-icam_415.jpeg" />
+    <Content Include="Content\images\0000041_htc-one-m8-android-l-50-lollipop_415.jpeg" />
+    <Content Include="Content\images\0000042_htc-one-mini-blue_415.jpeg" />
+    <Content Include="Content\images\0000044_nokia-lumia-1020_415.jpeg" />
     <Content Include="Content\images\0000045_beats-pill-20-wireless-speaker_415.jpeg" />
     <Content Include="Content\images\0000047_universal-7-8-inch-tablet-cover_415.jpeg" />
     <Content Include="Content\images\0000048_portable-sound-speakers_415.jpeg" />
