@@ -19,24 +19,23 @@
     margin-top: 4px;
 }
 
-.product-card{
-    margin-bottom: 25px;
+.product-card {
+    max-width: 478px;
 }
 
-.emphasize{
+.emphasize {
     border-bottom: 1px solid #ddd;
 }
 
-.search-input{
+.search-input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-    
-.navbar{
+
+.navbar {
     margin-bottom: 0px;
 }
 
-.product-list-container{
+.product-list-container {
     min-height: 836px;
 }
-
