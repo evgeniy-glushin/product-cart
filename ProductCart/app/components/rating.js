@@ -10,7 +10,6 @@
             max: '<',
             setRating: '&'
         },
-        //transclude: true,
         controllerAs: 'vm',
         controller: function () {
           

@@ -21,6 +21,7 @@ namespace ProductCart.Controllers
         public PagedResult<Product> Get([FromUri]GetProductsVm input)
         {
             var productsList = _productRepository.GetAll();
+            
             if (input.CategoryId > 0)
                 productsList = productsList.Where(p => p.CategoryId == input.CategoryId);
 

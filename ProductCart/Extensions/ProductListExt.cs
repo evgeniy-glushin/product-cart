@@ -8,10 +8,18 @@ namespace ProductCart.Extensions
 {
     public static class ProductListExt
     {
-        public static PagedResult<Product> ToPagedResult<T>(this IEnumerable<Product> rows,
+        /// <summary>
+        /// Gets paged result for the data. 
+        /// </summary>
+        /// <typeparam name="TOrderByParam">Type of property we wanna sort by.</typeparam>
+        /// <param name="rows">Source data.</param>
+        /// <param name="page">The page.</param>
+        /// <param name="pageSize">The size of the page.</param>
+        /// <param name="orderBy">Order by delegate.</param>
+        public static PagedResult<Product> ToPagedResult<TOrderByParam>(this IEnumerable<Product> rows,
             int page,
             int pageSize,
-            Func<Product, T> orderBy)
+            Func<Product, TOrderByParam> orderBy)
         {
             PagedResult<Product> pagedResult = new PagedResult<Product>
             {
